@@ -6,6 +6,10 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName = "Ruled Wall Tile", menuName = "Ruled Wall Tile", order = 357)]
 public class RuledWallTile : ScriptableObject
 {
+
+        //Objekte der verschiedenen Klassen
+    //SerializeField bewirkt in Unity dass man die Sachen im Editor sehen/zuweisen kann
+
     [SerializeField]
     private OneWallTile oneWallTiles;
     [SerializeField]
@@ -27,6 +31,10 @@ public class RuledWallTile : ScriptableObject
 
     private int neighbourCounter;
     private int diagonalCounter;
+
+    //  Wird vom Levelgenerator aufgerufen
+    //  x und y sind die Koordinaten von dem Tile dass
+    //  gerade generiert wird
 
     public Tile SelectRuledTile(int x, int y)
     {
@@ -64,7 +72,7 @@ public class RuledWallTile : ScriptableObject
         {
             for (int j = -1; j <= 1; j++)
             {
-                //eigene position überspringen
+                //eigene position ï¿½berspringen
                 if (i == 0 && j == 0)
                     continue;
 
@@ -100,7 +108,7 @@ public class RuledWallTile : ScriptableObject
         }
     }
 
-    //Überprüfen ob gülitge position
+    //ï¿½berprï¿½fen ob gï¿½litge position
     private bool IsValidPosition(int x, int y)
     {
         if (x < 0 || x > GameStats.map.GetLength(0))
